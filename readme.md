@@ -1,10 +1,13 @@
 # Electron Workshop
 
+With Node.js, a good text editor, and some basic Web skills, Electron.js makes it easy to create cross-platform desktop applications! 
+
 ## Prerequisites:
 
 * [Node.js](https://nodejs.org)
 * [Visual Studio Code](http://code.visualstudio.com)
+* Optional: [Git](https://git-scm.com/)
 
-Start with by cloning the [project](https://github.com/reverentgeek/electron-workshop) and checking out branch [exercise-1](https://github.com/reverentgeek/electron-workshop/tree/exercise-1).
+[Follow the exercises in the wiki](https://github.com/reverentgeek/electron-workshop/wiki/Exercise-1:-Hello-Electron!) to get started!
 
-Follow the instructions in [exercise-1.md](https://github.com/reverentgeek/electron-workshop/blob/exercise-1/exercise-1.md), or follow along using the [wiki](https://github.com/reverentgeek/electron-workshop/wiki).
+If you want them, download the presentation slides as [Powerpoint](https://github.com/reverentgeek/electron-workshop/raw/master/Electron%20Workshop.pptx) or [PDF](https://github.com/reverentgeek/electron-workshop/raw/master/Electron%20Workshop.pdf).

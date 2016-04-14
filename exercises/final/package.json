@@ -1,0 +1,31 @@
+{
+  "name": "electron-workshop",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+	"package:osx": "electron-packager . --platform=darwin --arch=x64",
+	"package:win64": "electron-packager . --platform=win32 --arch=x64",
+	"package:win32": "electron-packager . --platform=win32 --arch=ia32",
+	"package:linux": "electron-packager . --platform=linux --arch=x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reverentgeek/electron-workshop.git"
+  },
+  "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reverentgeek/electron-workshop/issues"
+  },
+  "homepage": "https://github.com/reverentgeek/electron-workshop#readme",
+  "dependencies": {
+    "electron-prebuilt": "^0.37.5",
+    "electron-reload": "^0.2.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^6.0.2"
+  }
+}
