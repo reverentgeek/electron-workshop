@@ -4,14 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package:osx": "electron-packager . --platform=darwin --arch=x64",
-    "package:win64": "electron-packager . --platform=win32 --arch=x64",
-    "package:win32": "electron-packager . --platform=win32 --arch=ia32",
-    "package:linux": "electron-packager . --platform=linux --arch=x64",
-    "test": "npm run test:main && npm run test:renderer",
-    "test:main": "electron-mocha ./tests/main/*.spec.js --reporter spec --colors",
-    "test:renderer": "electron-mocha ./tests/renderer/*.spec.js --renderer --reporter spec --colors"  
+	"package:osx": "electron-packager . --platform=darwin --arch=x64",
+	"package:win64": "electron-packager . --platform=win32 --arch=x64",
+	"package:win32": "electron-packager . --platform=win32 --arch=ia32",
+	"package:linux": "electron-packager . --platform=linux --arch=x64"
   },
   "repository": {
     "type": "git",
