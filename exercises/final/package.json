@@ -28,6 +28,8 @@
     "electron-reload": "^0.2.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "electron-mocha": "^1.1.0",
     "electron-packager": "^6.0.2"
   }
 }
