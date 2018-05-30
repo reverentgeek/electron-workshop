@@ -1,37 +1,41 @@
 "use strict";
 
-const electron = require( "electron" );
-const app = electron.app;
-const ipc = electron.ipcMain;
-const dialog = electron.dialog;
-const BrowserWindow = electron.BrowserWindow;
-const reload = require( "electron-reload" );
-reload( __dirname );
-
+const electron = require("electron");
+const path = require("path");
+const reload = require("electron-reload");
+const isDev = require("electron-is-dev");
+const { app, BrowserWindow, ipcMain, dialog } = electron;
 let mainWindow = null;
 
-app.on( "window-all-closed", function() {
-	if ( process.platform !== "darwin" ) {
+if (isDev) {
+	const electronPath = path.join(__dirname, "node_modules", ".bin", "electron");
+	reload(__dirname, { electron: electronPath });
+}
+
+app.on("window-all-closed", () => {
+	if (process.platform !== "darwin") {
 		app.quit();
 	}
-} );
+});
 
-app.on( "ready", function() {
-	mainWindow = new BrowserWindow( { width: 800, height: 600 } );
-	mainWindow.loadURL( "file://" + __dirname + "/index.html" );
+app.on("ready", () => {
+	mainWindow = new BrowserWindow({ width: 800, height: 600 });
+	mainWindow.loadURL(`file://${__dirname}/index.html`);
 
-	mainWindow.webContents.openDevTools( { detach: true } );
+	if (isDev) {
+		mainWindow.webContents.openDevTools({ mode: "detach" });
+	}
 
-	mainWindow.on( "closed", function() {
+	mainWindow.on("close", () => {
 		mainWindow = null;
-	} );
-} );
+	});
+});
 
-ipc.on( "show-dialog", function( e, arg ) {
-	let msgInfo = {
+ipcMain.on("show-dialog", (e, arg) => {
+	const msgInfo = {
 		title: "My App Alert",
 		message: arg.message,
-		buttons: [ "OK" ]
+		buttons: ["OK"]
 	};
-	dialog.showMessageBox( msgInfo );
-} );
+	dialog.showMessageBox(msgInfo);
+});

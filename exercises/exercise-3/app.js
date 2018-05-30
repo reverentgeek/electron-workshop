@@ -1,7 +1,5 @@
-"use strict";
-
-document.addEventListener( "DOMContentLoaded", function() {
-	let version = process.version;
-	let e = document.getElementById( "info" );
-	e.textContent = "I'm running Node.js version: " + version;
-} );
+document.addEventListener("DOMContentLoaded", () => {
+	const version = process.version;
+	const info = document.getElementById("info");
+	info.textContent = `I'm running Node.js version: ${version}`;
+});

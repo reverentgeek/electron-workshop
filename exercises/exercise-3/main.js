@@ -1,24 +1,28 @@
 "use strict";
 
-const electron = require( "electron" );
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-const reload = require( "electron-reload" );
-reload( __dirname );
-
+const electron = require("electron");
+const path = require("path");
+const reload = require("electron-reload");
+const isDev = require("electron-is-dev");
+const { app, BrowserWindow } = electron;
 let mainWindow = null;
 
-app.on( "window-all-closed", function() {
-	if ( process.platform !== "darwin" ) {
-		app.quit();
-	}
-} );
+if (isDev) {
+	const electronPath = path.join(__dirname, "node_modules", ".bin", "electron");
+	reload(__dirname, { electron: electronPath });
+}
 
-app.on( "ready", function() {
-	mainWindow = new BrowserWindow( { width: 800, height: 600 } );
-	mainWindow.loadURL( "file://" + __dirname + "/index.html" );
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
 
-	mainWindow.on( "closed", function() {
-		mainWindow = null;
-	} );
-} );
+app.on("ready", () => {
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+
+  mainWindow.on("close", () => {
+    mainWindow = null;
+  });
+});

@@ -1,19 +1,11 @@
 {
-  "name": "electron-workshop",
-  "version": "0.1.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reverentgeek/electron-workshop.git"
-  },
-  "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/reverentgeek/electron-workshop/issues"
-  },
-  "homepage": "https://github.com/reverentgeek/electron-workshop#readme"
+	"name": "electron-workshop",
+	"version": "0.1.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"license": "MIT"
 }

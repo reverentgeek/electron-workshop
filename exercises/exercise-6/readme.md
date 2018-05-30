@@ -1,3 +1,3 @@
-# Exercise 6: Tests
+# Exercise 6: Menus
 
-[Exercise 6 Instructions](https://github.com/reverentgeek/electron-workshop/wiki/Exercise-6:-Tests)
+[Exercise 6 Menus](https://github.com/reverentgeek/electron-workshop/wiki/Exercise-6:-Menus)

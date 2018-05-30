@@ -23,7 +23,6 @@
 		"electron-packager": "^12.1.0"
 	},
 	"dependencies": {
-		"axios": "^0.18.0",
 		"electron-is-dev": "^0.3.0",
 		"electron-reload": "^1.2.2"
 	}

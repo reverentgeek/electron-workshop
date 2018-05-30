@@ -4,7 +4,8 @@ const electron = require("electron");
 const path = require("path");
 const reload = require("electron-reload");
 const isDev = require("electron-is-dev");
-const { app, BrowserWindow } = electron;
+const { app, BrowserWindow, ipcMain, dialog } = electron;
+const menus = require("./menus");
 let mainWindow = null;
 
 if (isDev) {
@@ -21,6 +22,7 @@ app.on("window-all-closed", () => {
 app.on("ready", () => {
 	mainWindow = new BrowserWindow({ width: 800, height: 600 });
 	mainWindow.loadURL(`file://${__dirname}/index.html`);
+	menus.buildMenu();
 	if (isDev) {
 		mainWindow.webContents.openDevTools({ mode: "detach" });
 	}
@@ -28,4 +30,13 @@ app.on("ready", () => {
 	mainWindow.on("close", () => {
 		mainWindow = null;
 	});
+});
+
+ipcMain.on("show-dialog", (e, arg) => {
+	const msgInfo = {
+		title: "My App Alert",
+		message: arg.message,
+		buttons: ["OK", "Cancel"]
+	};
+	dialog.showMessageBox(msgInfo);
 });

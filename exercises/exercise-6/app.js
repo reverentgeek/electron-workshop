@@ -1,14 +1,14 @@
-"use strict";
-const ipc = require( "electron" ).ipcRenderer;
+const { ipcRenderer } = require("electron");
 
-document.addEventListener( "DOMContentLoaded", function() {
-	let version = process.version;
-	let e = document.getElementById( "info" );
-	e.textContent = "I'm running Node.js version: " + version;
+document.addEventListener("DOMContentLoaded", () => {
+	const version = process.version;
+	const info = document.getElementById("info");
+	info.textContent = `I'm running Node.js version: ${version}`;
 
-	let btn = document.getElementById( "clickme" );
-	btn.addEventListener( "click", function() {
-		console.log( "I was clicked." );
-		ipc.send( "show-dialog", { message: "The button was clicked" } );
-	} );
-} );
+	const btn = document.getElementById("clickme");
+	btn.addEventListener("click", e => {
+		console.log("I was clicked.");
+		ipcRenderer.send("show-dialog", { message: "The button was clicked" });
+	});
+});
+
