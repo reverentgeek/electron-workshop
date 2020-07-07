@@ -11,6 +11,6 @@
 	"author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
 	"license": "MIT",
 	"devDependencies": {
-		"electron": "^2.0.2"
+		"electron": "^9.1.0"
 	}
 }
